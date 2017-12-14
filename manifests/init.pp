@@ -36,6 +36,9 @@ class fail2ban (
   $maxretry                 = 3,
   $whitelist                = ['127.0.0.1/8', '192.168.56.0/24'],
   $custom_jails             = undef,
+  $sender		    = 'Fail2Ban',
+  $sendername		    = 'fail2ban@localhost',
+  $banaction		    = 'iptables-multiport',
 ) inherits ::fail2ban::params {
   validate_re($package_ensure, '^(absent|latest|present|purged)$')
   validate_string($package_name)
